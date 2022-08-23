@@ -51,4 +51,4 @@ jobs:
         with:
           artifacts: /github/DATA_DIR/OUTPUT/virology.epub
           omitBody: True
-          tag: $DAY
+          tag: $(date +'%Y%m%d')
