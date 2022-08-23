@@ -6,6 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     container: samuelklutse/enki_epub:latest
     steps:
+      - name: Set Tag as and Env variable
+        run: echo "::set-env name=TAG::$(date +'%Y%m%d.%H%M%S')"
       - name: Build Book
         run: |
           echo 'Initializing Book Build'
@@ -49,4 +51,4 @@ jobs:
         with:
           artifacts: /tmp/virology.epub
           omitBody: True
-          tag: $(date +'%Y%m%d')
+          tag: ${{ env.TAG }}
