@@ -5,6 +5,9 @@ jobs:
     name: Build book
     runs-on: ubuntu-latest
     container: samuelklutse/enki_epub:latest
+    permissions:
+      deployments: write
+      packages: write
     steps:
       - name: Set Tag as and Env variable
         run: echo "TAG=$(date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
