@@ -7,7 +7,7 @@ jobs:
     container: samuelklutse/enki_epub:latest
     steps:
       - name: Set Tag as and Env variable
-        run: echo "::set-env name=TAG::$(date +'%Y%m%d.%H%M%S')"
+        run: echo "TAG=$(date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
       - name: Build Book
         run: |
           echo 'Initializing Book Build'
