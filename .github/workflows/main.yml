@@ -8,6 +8,7 @@ jobs:
     permissions:
       deployments: write
       packages: write
+      contents: write
     steps:
       - name: Set Tag as and Env variable
         run: echo "TAG=$(date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
