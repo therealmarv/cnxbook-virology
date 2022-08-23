@@ -6,8 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     container: samuelklutse/enki_epub:latest
     steps:
-      - name: Set current date as env variable
-        run: echo "DAY::$(date +'%Y%m%d')" >> $GITHUB_ENV
       - name: Build Book
         run: |
           echo 'Initializing Book Build'
