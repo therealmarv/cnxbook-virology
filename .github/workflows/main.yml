@@ -27,17 +27,15 @@ jobs:
           cd enki
           git checkout epub 
           TRACE_ON=1 LOCAL_ATTIC_DIR=_attic TERM=xterm /github/enki/dockerfiles/enki-in-container --command all-git-epub --repo-dir ${{ env.WORKDIR }} --style dummy
-          ls -alt /tmp/
-          
-
-#      - uses: ncipollo/release-action@v1
-#        with:
-#          artifacts: /tmp/virology.epub
-#          omitBody: True
-#          tag: ${{ env.TAG }}
-#      - uses: actions/upload-artifact@v3
-#        with:
-#          name: ${{ github.event.repository.name }}
-#          path: /tmp/virology.epub
-#          if-no-files-found: error
+          mv /tmp/test.epub /tmp/virology.epub
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: /tmp/virology.epub
+          omitBody: True
+          tag: ${{ env.TAG }}
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.event.repository.name }}
+          path: /tmp/virology.epub
+          if-no-files-found: error
 
