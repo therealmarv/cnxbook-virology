@@ -26,7 +26,18 @@ jobs:
           git clone https://github.com/openstax/enki
           cd enki
           git checkout epub 
-          $(tput colors)
+          if [[ $(tput colors) -ge 8 ]]; then
+              echo "Setting colors"
+              # LCOV_EXCL_START
+              declare -x c_red=$(tput setaf 1)
+              declare -x c_green=$(tput setaf 2)
+              declare -x c_yellow=$(tput setaf 3)
+              declare -x c_blue=$(tput setaf 4)
+              declare -x c_purple=$(tput setaf 5)
+              declare -x c_cyan=$(tput setaf 6)
+              declare -x c_none=$(tput sgr0) # Keep this last so TRACE=true does not cause everything to be cyan
+              # LCOV_EXCL_STOP
+          fi
           TRACE_ON=1 LOCAL_ATTIC_DIR=_attic /github/enki/dockerfiles/enki-in-container --command all-git-epub --repo-dir ${{ env.WORKDIR }} --style dummy
 
 #      - uses: ncipollo/release-action@v1
