@@ -27,6 +27,8 @@ jobs:
           cd enki
           git checkout epub 
           TRACE_ON=1 LOCAL_ATTIC_DIR=_attic TERM=xterm /github/enki/dockerfiles/enki-in-container --command all-git-epub --repo-dir ${{ env.WORKDIR }} --style dummy
+          ls -alt /tmp/
+          
 
 #      - uses: ncipollo/release-action@v1
 #        with:
