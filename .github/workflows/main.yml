@@ -19,7 +19,6 @@ jobs:
       - name: List files in the repository
         run: |
           ls -alt ${{ env.WORKDIR }}
-          ls -alt ${{ github.workspace }}
       - name: Build Book
         run: |
           echo 'Initializing Book Build'
