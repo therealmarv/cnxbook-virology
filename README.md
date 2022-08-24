@@ -4,7 +4,7 @@
 
 _Virology_ is a textbook published by [OpenStax](https://openstax.org/), a non profit organization that is part of [Rice University](https://www.rice.edu/).
 
-The book can be viewed [online](https://openstax.org/details/books/virology), where you can also see a list of contributors.
+The book can be viewed [online](https://github.com/cnx-user-books/cnxbook-virology/releases/latest), where you can also see a list of contributors.
 
 ## License
 This book is available under the [Creative Commons Attribution License](./LICENSE) license.
