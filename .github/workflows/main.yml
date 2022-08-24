@@ -20,6 +20,5 @@ jobs:
           cd enki
           git checkout epub 
           
-          cd /github/DATA_DIR 
           TRACE_ON=1 /github/enki/enki-in-container --repo-dir=${{ github.workspace }} --style=dummy
           ls -alt /tmp
