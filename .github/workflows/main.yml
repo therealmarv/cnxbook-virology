@@ -19,5 +19,5 @@ jobs:
           git clone https://github.com/openstax/enki
           cd enki
           git checkout epub 
-          TRACE_ON=1 /github/enki/dockerfiles/enki-in-container all-git-epub --repo-dir=${{ github.workspace }} --style=dummy
+          TRACE_ON=1 /github/enki/dockerfiles/enki-in-container --command=all-git-epub --repo-dir=${{ github.workspace }} --style=dummy
           ls -alt /tmp
