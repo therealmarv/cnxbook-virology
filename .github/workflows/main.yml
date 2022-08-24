@@ -26,6 +26,7 @@ jobs:
           git clone https://github.com/openstax/enki
           cd enki
           git checkout epub 
+          $(tput colors)
           TRACE_ON=1 LOCAL_ATTIC_DIR=_attic /github/enki/dockerfiles/enki-in-container --command all-git-epub --repo-dir ${{ env.WORKDIR }} --style dummy
 
 #      - uses: ncipollo/release-action@v1
