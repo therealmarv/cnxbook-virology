@@ -15,8 +15,8 @@ jobs:
       - name: List files in the repository
         run: |
           ls -alt /home/app
-          ls -alt /github
-          ls -alt /github/workspace
+          ls -alt /github/workflow
+          ls -alt /github/home
           ls -alt ${{ github.workspace }}
       - name: Build Book
         run: |
