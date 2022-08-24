@@ -21,9 +21,7 @@ jobs:
           git clone https://github.com/openstax/enki
           cd enki
           git checkout epub 
-          ls -lat /github
-          ls -alt /github/workspace
-          cd /github/DATA_DIR 
+          ls -lat ${{ github.workspace }}
           TRACE_ON=1 /github/enki/enki-in-container --command all-git-epub --repo-dir ${{ github.workspace }} --style=dummy
 
 #      - uses: ncipollo/release-action@v1
