@@ -10,10 +10,11 @@ jobs:
       packages: write
       contents: write
     steps:
-      - name: Set Tag as and Env variable
-        run: echo "TAG=$(date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
-      - name: Clone Repo
+      - name: Checkout repository
         uses: actions/checkout@v3
+      - name: List files in the repository
+        run: |
+          ls -alt ${{ github.workspace }}
       - name: Build Book
         run: |
           echo 'Initializing Book Build'
@@ -21,9 +22,9 @@ jobs:
           git clone https://github.com/openstax/enki
           cd enki
           git checkout epub 
-          ls -lat ${{ github.workspace }}
           TRACE_ON=1 /github/enki/enki-in-container --command all-git-epub --repo-dir ${{ github.workspace }} --style=dummy
-
+      - name: Set Tag as and Env variable
+        run: echo "TAG=$(date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
 #      - uses: ncipollo/release-action@v1
 #        with:
 #          artifacts: /tmp/virology.epub
