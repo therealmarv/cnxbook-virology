@@ -13,11 +13,26 @@ jobs:
       - name: Set Tag as and Env variable
         run: echo "TAG=$(date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
       - name: Build Book
+        uses: actions/checkout@v3
         run: |
           echo 'Initializing Book Build'
           cd /github
           git clone https://github.com/openstax/enki
           cd enki
           git checkout epub 
-          TRACE_ON=1 /github/enki/dockerfiles/enki-in-container --command all-git-epub --repo-dir /github/workspace --style dummy
-          ls -alt /tmp
+          ls -lat /github
+          ls -alt /github/workspace
+          cd /github/DATA_DIR 
+          TRACE_ON=1 /github/enki/enki-in-container --command all-git-epub --repo-dir ${{ github.workspace }} --style=dummy
+
+#      - uses: ncipollo/release-action@v1
+#        with:
+#          artifacts: /tmp/virology.epub
+#          omitBody: True
+#          tag: ${{ env.TAG }}
+#      - uses: actions/upload-artifact@v3
+#        with:
+#          name: ${{ github.event.repository.name }}
+#          path: /tmp/virology.epub
+#          if-no-files-found: error
+
