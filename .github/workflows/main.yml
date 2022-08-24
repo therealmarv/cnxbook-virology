@@ -12,8 +12,9 @@ jobs:
     steps:
       - name: Set Tag as and Env variable
         run: echo "TAG=$(date +'%Y%m%d.%H%M%S')" >> $GITHUB_ENV
-      - name: Build Book
+      - name: Clone Repo
         uses: actions/checkout@v3
+      - name: Build Book
         run: |
           echo 'Initializing Book Build'
           cd /github
